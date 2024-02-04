@@ -1,5 +1,6 @@
 import "./App.css";
 import Tweet from "./components/Tweet";
+import {v4 as uuidv4} from 'uuid';
 
 const tweetsArray = [
   {
@@ -40,9 +41,18 @@ const tweetsArray = [
 function App() {
   return (
     <div className="App">
-      <Tweet />
+      {/* <Tweet tweet={ tweetsArray[0] }/> */}
+      {
+        tweetsArray.map ((eachTweet)=>{
+          return <Tweet key={uuidv4()} tweet={eachTweet} />
+        })
+      }
     </div>
   );
 }
+
+// {people.map((person)=> {
+//   return <Greeting key={uuidv4()} firstName={person.firstName} lastName={person.lastName} />
+// })}
 
 export default App;
